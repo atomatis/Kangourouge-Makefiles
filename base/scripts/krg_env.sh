@@ -1,29 +1,27 @@
 #!/usr/bin/env bash
 
+# script dir
+HERE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# import var
+. $HERE/utils/color.env
+
 KRG_FOLDER="$HOME/.krg"
 CONFIGURATION_FILE="$KRG_FOLDER/env.conf"
 DOMAIN="NOT_FOUND"
-COLOR="\033[38;5;82m"
-VOID="\033[0m"
 
 clear
 
 # Creation du fichier d'env krg si il n'existe pas et ajoute le domaine locale
 if [[ ! -f $CONFIGURATION_FILE ]]
 then
-    echo -e "\033[38;5;3mFichier de configuration introuvable ($CONFIGURATION_FILE).\033[0m"
+    echo -e "${T_SERIOUS_YELLOW}Fichier de configuration introuvable ($CONFIGURATION_FILE).$EOC"
     echo "Voulez-vous le créer? (y/n)"
     read -p "> " response
 
-    if [[ $response != "y" ]]
-    then
-        exit
-    fi
+    [[ $response != "y" ]] && exit
 
-    if [[ ! -d $KRG_FOLDER ]]
-    then
-        mkdir $KRG_FOLDER
-    fi
+    [[ ! -d $KRG_FOLDER ]] && mkdir $KRG_FOLDER
 
     touch $CONFIGURATION_FILE
 

@@ -33,3 +33,4 @@ logs: ## (Docker) show logs
 kill: ## (Docker) kill and clean
 	$(DOCKER_COMPOSE) kill {SERVICES}
 	$(DOCKER_COMPOSE) down --volumes --remove-orphans $SERVICES}
+zertzertzertz

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-VOID="\033[0m"
-BLUE="\033[0;34m"
-RED="\033[38;5;1m"
+# script dir
+HERE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo -e "           $RED                                    :e       					         "
+# import var
+. $HERE/utils/color.env
+
+echo -e "           $T_RED                                    :e       					         "
 echo "                                              'M$\\              		             	     "
 echo "                                              sf\$\$br          					         "
 echo "                                            J\\J\\J\$L\$L        				             "
@@ -24,4 +26,4 @@ echo "                :\$\$F     ?k\"Re                                         
 echo "              .\$\$P\\        **'\$\$B...                                                 "
 echo "           :e\$F\"               '\"\"\"\"                                                   "
 echo
-echo -e "$BLUE                      Art by Rosemary Lyndall Wemm      $VOID                     "
+echo -e "$T_BLUE                      Art by Rosemary Lyndall Wemm      $EOC                     "
